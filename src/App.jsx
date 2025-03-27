@@ -1,18 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./routes/AppRoutes";
+import AuthProvider from "./context/AuthContext"; 
 
-function App() {
-  const [count, setCount] = useState(0)
+import "./styles/globals.css";
 
+const App = () => {
   return (
-    <section>
-      <div className='w-96 h-96 bg-amber-400 flex justify-center items-center' >
-        <h1 className='text-black'>Happy for this project </h1>
-      </div>
-    </section>
-  )
-}
+    <AuthProvider>
+      <BrowserRouter> {/* ✅ Only One Router */}
+        <AppRoutes />
+      </BrowserRouter>
+    </AuthProvider>
+  );
+};
 
-export default App
+export default App;
